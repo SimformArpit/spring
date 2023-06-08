@@ -24,8 +24,8 @@ public class Main {
 //        int delete = studentDao.delete(6);
 //        delete += studentDao.delete(4);
 //        System.out.println(delete);
-        Student studentDetail = studentDao.getStudentDetail(1);
-        System.out.println(studentDetail);
-
+//        Student studentDetail = studentDao.getStudentDetail(1);
+//        System.out.println(studentDetail);
+            studentDao.getALlStudents().forEach(System.out::println);
     }
 }

@@ -3,6 +3,8 @@ package org.example;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import java.util.List;
+
 public class StudentDaoImp implements StudentDao {
     private JdbcTemplate template;
 
@@ -35,6 +37,14 @@ public class StudentDaoImp implements StudentDao {
         int result = template.update(query, studentId);
         return result;
     }
+
+    @Override
+    public List<Student> getALlStudents() {
+        String query = "select * from student";
+        List<Student> query1 = template.query(query, new RowMapperImp());
+        return query1;
+    }
+
     public Student getStudentDetail(int studentId){
         String query = "select * from student where id=?";
         RowMapper<Student> rowMaper = new RowMapperImp();
